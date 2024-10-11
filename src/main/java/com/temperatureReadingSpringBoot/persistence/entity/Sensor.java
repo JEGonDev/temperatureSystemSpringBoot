@@ -2,6 +2,8 @@ package com.temperatureReadingSpringBoot.persistence.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "sensor")
 public class Sensor {
@@ -22,13 +24,20 @@ public class Sensor {
     @JoinColumn(name = "device_id", nullable = false)
     private Device device;
 
+    @OneToMany(mappedBy = "sensor")
+    private List<Alert> alerts;
+
+    @OneToMany(mappedBy = "sensor")
+    private List<TemperatureReading> temperatureReadings;
+
     // Getters and Setters
-    public Integer getSensorId() {
+
+    public Integer getId() {
         return id;
     }
 
-    public void setSensorId(Integer sensorId) {
-        this.id = sensorId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getModel() {
@@ -53,5 +62,21 @@ public class Sensor {
 
     public void setDevice(Device device) {
         this.device = device;
+    }
+
+    public List<Alert> getAlerts() {
+        return alerts;
+    }
+
+    public void setAlerts(List<Alert> alerts) {
+        this.alerts = alerts;
+    }
+
+    public List<TemperatureReading> getTemperatureReadings() {
+        return temperatureReadings;
+    }
+
+    public void setTemperatureReadings(List<TemperatureReading> temperatureReadings) {
+        this.temperatureReadings = temperatureReadings;
     }
 }

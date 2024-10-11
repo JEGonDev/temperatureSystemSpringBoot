@@ -16,7 +16,7 @@ public class Alert {
     private String message;
 
     @Column(name = "creation_time", nullable = false)
-    private LocalDateTime creationTime;
+    private String creationTime;
 
     // Relationship with Sensor (Many Alerts belong to One Sensor)
     @ManyToOne
@@ -40,11 +40,11 @@ public class Alert {
         this.message = message;
     }
 
-    public LocalDateTime getCreationTime() {
+    public String getCreationTime() {
         return creationTime;
     }
 
-    public void setCreationTime(LocalDateTime creationTime) {
+    public void setCreationTime(String creationTime) {
         this.creationTime = creationTime;
     }
 

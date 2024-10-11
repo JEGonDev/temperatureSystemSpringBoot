@@ -25,12 +25,13 @@ public class Device {
     private List<Sensor> sensors;
 
     // Getters and Setters
-    public Integer getDeviceId() {
+
+    public Integer getId() {
         return id;
     }
 
-    public void setDeviceId(Integer deviceId) {
-        this.id = deviceId;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getDeviceName() {

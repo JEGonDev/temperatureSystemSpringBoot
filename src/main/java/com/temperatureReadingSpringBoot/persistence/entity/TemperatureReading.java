@@ -16,7 +16,7 @@ public class TemperatureReading {
     private Double temperature;
 
     @Column(name = "reading_time", nullable = false)
-    private LocalDateTime readingTime;
+    private String readingTime;
 
     // Relationship with Sensor (Many Readings belong to One Sensor)
     @ManyToOne
@@ -40,11 +40,11 @@ public class TemperatureReading {
         this.temperature = temperature;
     }
 
-    public LocalDateTime getReadingTime() {
+    public String getReadingTime() {
         return readingTime;
     }
 
-    public void setReadingTime(LocalDateTime readingTime) {
+    public void setReadingTime(String readingTime) {
         this.readingTime = readingTime;
     }
 
