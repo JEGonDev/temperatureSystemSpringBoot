@@ -2,18 +2,18 @@ package com.temperatureReadingSpringBoot.domain.dto;
 
 public class TemperatureReadingDTO {
 
-    private Integer id;
+    private Integer readingID;
     private Double temperature;
     private String readingTime;
     private SensorDTO sensor; // Relación muchos a uno con Sensor
 
     // Getters y Setters
-    public Integer getId() {
-        return id;
+    public Integer getReadingID() {
+        return readingID;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setReadingID(Integer readingID) {
+        this.readingID = readingID;
     }
 
     public Double getTemperature() {

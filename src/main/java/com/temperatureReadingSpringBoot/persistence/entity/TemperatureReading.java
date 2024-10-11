@@ -1,7 +1,6 @@
 package com.temperatureReadingSpringBoot.persistence.entity;
 
 import jakarta.persistence.*;
-import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "temperature_reading")
