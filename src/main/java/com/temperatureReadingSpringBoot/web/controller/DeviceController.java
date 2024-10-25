@@ -14,32 +14,32 @@ public class DeviceController {
     @Autowired
     private DeviceService deviceService;
 
+    @GetMapping("/getAll")
+    public List<DeviceDTO> getAll() {
+        return deviceService.getAll();
+    }
+
+    @GetMapping("/getById/{id}")
+    public Optional<DeviceDTO> getDeviceById(@PathVariable("id") int id) {
+        return deviceService.getDeviceById(id);
+    }
+
+    @GetMapping("/existsById/{id}")
+    public boolean existsDeviceById(@PathVariable("id") int id) {
+        return deviceService.existsDeviceById(id);
+    }
+
+    @GetMapping("/countAll")
+    public long countAll() {
+        return deviceService.countAll();
+    }
+
     @PostMapping("/save")
     public DeviceDTO save(@RequestBody DeviceDTO deviceDTO) {
         return deviceService.save(deviceDTO);
     }
 
-    @GetMapping("/getDeviceById/{id}")
-    public Optional<DeviceDTO> getDeviceById(@PathVariable("id") int id) {
-        return deviceService.getDeviceById(id);
-    }
-
-    @GetMapping("/existsDeviceById/{id}")
-    public boolean existsDeviceById(@PathVariable("id") int id) {
-        return deviceService.existsDeviceById(id);
-    }
-
-    @GetMapping("/getAllDevices")
-    public List<DeviceDTO> getAll() {
-        return deviceService.getAll();
-    }
-
-    @GetMapping("/countAllDevices")
-    public long countAll() {
-        return deviceService.countAll();
-    }
-
-    @DeleteMapping("/deleteDeviceById/{id}")
+    @DeleteMapping("/deleteById/{id}")
     public boolean deleteDeviceById(@PathVariable("id") int id) {
         return deviceService.deleteDeviceById(id);
     }

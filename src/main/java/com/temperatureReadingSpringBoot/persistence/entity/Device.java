@@ -14,10 +14,10 @@ public class Device {
     @Column(name = "device_id")
     private Integer id;
 
-    @Column(name = "device_name", nullable = false)
+    @Column(name = "device_name")
     private String deviceName;
 
-    @Column(name = "location", nullable = false)
+    @Column(name = "location")
     private String location;
 
     // Relationship with Sensor (One Device has Many Sensors)

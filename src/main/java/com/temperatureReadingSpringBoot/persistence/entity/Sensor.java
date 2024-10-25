@@ -13,14 +13,14 @@ public class Sensor {
     @Column(name = "sensor_id")
     private Integer id;
 
-    @Column(name = "model", nullable = false)
+    @Column(name = "model")
     private String model;
 
-    @Column(name = "type", nullable = false)
+    @Column(name = "type")
     private String type;
 
     // Relationship with Device (Many Sensors belong to One Device)
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "device_id", nullable = false)
     private Device device;
 

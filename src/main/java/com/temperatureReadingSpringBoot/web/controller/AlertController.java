@@ -14,32 +14,32 @@ public class AlertController {
     @Autowired
     private AlertService alertService;
 
+    @GetMapping("/getAll")
+    public List<AlertDTO> getAll() {
+        return alertService.getAll();
+    }
+
+    @GetMapping("/getById/{id}")
+    public Optional<AlertDTO> getAlertById(@PathVariable("id") int id) {
+        return alertService.getAlertById(id);
+    }
+
+    @GetMapping("/existsById/{id}")
+    public boolean existsAlertById(@PathVariable("id") int id){
+        return alertService.existsAlertById(id);
+    }
+
+    @GetMapping("/countAll")
+    public long countAll() {
+        return alertService.countAll();
+    }
+
     @PostMapping("/save")
     public AlertDTO save(@RequestBody AlertDTO alertDTO) {
         return alertService.save(alertDTO);
     }
 
-    @GetMapping("/getAlertById/{id}")
-    public Optional<AlertDTO> getAlertById(@PathVariable("id") int id) {
-        return alertService.getAlertById(id);
-    }
-
-    @GetMapping("/existsAlertById/{id}")
-    public boolean existsAlertById(@PathVariable("id") int id){
-        return alertService.existsAlertById(id);
-    }
-
-    @GetMapping("/getAllAlerts")
-    public List<AlertDTO> getAll() {
-        return alertService.getAll();
-    }
-
-    @GetMapping("/countAllAlerts")
-    public long countAll() {
-        return alertService.countAll();
-    }
-
-    @DeleteMapping("/deleteAlertById/{id}")
+    @DeleteMapping("/deleteById/{id}")
     public boolean deleteAlertById(@PathVariable("id") int id) {
         return alertService.deleteAlertById(id);
     }

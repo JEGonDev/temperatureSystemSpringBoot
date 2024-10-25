@@ -12,14 +12,14 @@ public class Alert {
     @Column(name = "alert_id")
     private Integer id;
 
-    @Column(name = "message", nullable = false, columnDefinition = "TEXT")
+    @Column(name = "message", columnDefinition = "TEXT")
     private String message;
 
-    @Column(name = "creation_time", nullable = false)
+    @Column(name = "creation_time")
     private String creationTime;
 
     // Relationship with Sensor (Many Alerts belong to One Sensor)
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "sensor_id", nullable = false)
     private Sensor sensor;
 

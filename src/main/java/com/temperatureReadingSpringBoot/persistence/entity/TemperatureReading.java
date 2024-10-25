@@ -11,14 +11,14 @@ public class TemperatureReading {
     @Column(name = "reading_id")
     private Integer id;
 
-    @Column(name = "temperature", nullable = false)
+    @Column(name = "temperature")
     private Double temperature;
 
-    @Column(name = "reading_time", nullable = false)
+    @Column(name = "reading_time")
     private String readingTime;
 
     // Relationship with Sensor (Many Readings belong to One Sensor)
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "sensor_id", nullable = false)
     private Sensor sensor;
 

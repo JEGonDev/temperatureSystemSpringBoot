@@ -14,32 +14,32 @@ public class SensorController {
     @Autowired
     private SensorService sensorService;
 
+    @GetMapping("/getAll")
+    public List<SensorDTO> getAll() {
+        return sensorService.getAll();
+    }
+
+    @GetMapping("/getById/{id}")
+    public Optional<SensorDTO> getSensorById(@PathVariable("id") int id) {
+        return sensorService.getSensorById(id);
+    }
+
+    @GetMapping("/existsById/{id}")
+    public boolean existsSensorById(@PathVariable("id") int id) {
+        return sensorService.existsSensorById(id);
+    }
+
+    @GetMapping("/countAll")
+    public long countAll() {
+        return sensorService.countAll();
+    }
+
     @PostMapping("/save")
     public SensorDTO save(@RequestBody SensorDTO sensorDTO) {
         return sensorService.save(sensorDTO);
     }
 
-    @GetMapping("/getSensorById/{id}")
-    public Optional<SensorDTO> getSensorById(@PathVariable("id") int id) {
-        return sensorService.getSensorById(id);
-    }
-
-    @GetMapping("/existsSensorById/{id}")
-    public boolean existsSensorById(@PathVariable("id") int id) {
-        return sensorService.existsSensorById(id);
-    }
-
-    @GetMapping("/getAllSensors")
-    public List<SensorDTO> getAll() {
-        return sensorService.getAll();
-    }
-
-    @GetMapping("/countAllSensors")
-    public long countAll() {
-        return sensorService.countAll();
-    }
-
-    @DeleteMapping("/deleteSensorById/{id}")
+    @DeleteMapping("/deleteById/{id}")
     public boolean deleteSensorById(@PathVariable("id") int id) {
         return sensorService.deleteSensorById(id);
     }
